@@ -5,6 +5,7 @@ import { BestSellers } from './components/BestSellers.tsx';
 import { Route, Routes } from 'react-router';
 import './App.css'
 import { Product } from './components/Product.tsx';
+import { Cart } from './components/Cart.tsx';
 
 function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -38,6 +39,8 @@ function App() {
       <Routes>
         <Route path='/' element={ <BestSellers />} />
         <Route path='/product/:id' element={ <Product onAddToCart={addToCart} />} />
+        <Route path='/cart' element={ <Cart cart={cart} />} />
+
       </Routes>
     </div>
   )
