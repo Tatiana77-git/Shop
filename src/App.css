@@ -308,3 +308,42 @@
   background: #e0245e;
   color: white;
 }
+.payBtn {
+  display: block;
+  margin: 20px 0 0 auto;
+  background: #2068F8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.payBtn:hover {
+  background: #1a55d0;
+}
+
+.orderConfirmed {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.orderConfirmed h2 {
+  color: #22262A;
+  font-size: 32px;
+}
+
+.demoNote {
+  color: #5E5E5E;
+  font-size: 14px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 24px;
+  color: #2068F8;
+  text-decoration: none;
+  font-weight: 500;
+}

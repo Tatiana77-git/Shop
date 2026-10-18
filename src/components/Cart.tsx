@@ -1,15 +1,24 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import arrowBack from "../assets/img/arrowBack.svg";
 import { CartItem } from "../types/types";
 
 type CartProps = {
   cart: CartItem[];
   onRemove: (id: number) => void;
+  onPay: () => void;
 };
 
-export const Cart = ({ cart, onRemove }: CartProps) => {
+export const Cart = ({ cart, onRemove, onPay }: CartProps) => {
+  const navigate = useNavigate();
+
   // итог считается из списка: цена × количество, всё складывается
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  // симуляция оплаты: очищаем корзину и переходим на страницу подтверждения
+  const handlePay = () => {
+    onPay();
+    navigate("/order-confirmed");
+  };
 
   return (
     <div className="cartPage">
@@ -38,6 +47,9 @@ export const Cart = ({ cart, onRemove }: CartProps) => {
             </div>
           ))}
           <p className="cartTotal">Total: € {total.toFixed(2)}</p>
+          <button className="payBtn" onClick={handlePay}>
+            Pay
+          </button>
         </>
       )}
     </div>
