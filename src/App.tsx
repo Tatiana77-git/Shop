@@ -52,10 +52,6 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // временно, чтобы увидеть корзину; позже уберём
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   return (
     <div className='appContainer'>
