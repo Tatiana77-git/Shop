@@ -50,7 +50,7 @@ export const Product = ({ onAddToCart }: ProductProps) => {
   }
 
   return (
-    <div>
+    <div className="productPage">
       <div className="arrowBack">
         <Link to={"/"}>
           <img src={arrowBack} alt="arrowBack" />

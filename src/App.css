@@ -1,3 +1,4 @@
+
 .appContainer {
   width: 1308px;
   padding: 0 16px;
@@ -15,6 +16,7 @@
 .cartIcon {
   position: relative;
   display: inline-block;
+  margin-right: 40px;
 }
 
 .cartBadge {
@@ -32,7 +34,7 @@
   text-align: center;
 }
 
-/* Продукты */
+/* Главная: продукты */
 .bestSeller {
   margin-bottom: 100px;
 }
@@ -42,7 +44,6 @@
   color: #22262A;
 }
 
-/* Карточки */
 .cards {
   display: flex;
   column-gap: 32px;
@@ -82,7 +83,9 @@
   margin-bottom: 30px;
 }
 
-.card button {
+/* Кнопка и ссылка в карточке выглядят одинаково */
+.card button,
+.card a {
   background-color: white;
   border: 1px solid #2068F8;
   border-radius: 2px;
@@ -98,25 +101,11 @@
 }
 
 .card a {
-  background-color: white;
-  border: 1px solid #2068F8;
-  border-radius: 2px;
-  padding: 10px 0;
-  width: 80%;
-  color: #2068F8;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  align-self: center;
-  margin-bottom: 36px;
-  cursor: pointer;
   text-align: center;
   text-decoration: none;
 }
 
-/* Страница продукта / товара */
-
-/* Вернуться на главную страницу */
+/* Ссылка «Back to Best Seller» (страница товара и корзина) */
 .arrowBack img {
   margin-right: 10px;
 }
@@ -131,21 +120,28 @@
   margin: 36px 0;
 }
 
-/* Продукт */
+/* Страница товара: всё собрано по центру */
+.productPage {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .product {
   display: flex;
-  column-gap: 48px;
-  margin-bottom: 62px;
+  align-items: flex-start;
+  column-gap: 40px;
+  margin-bottom: 40px;
 }
 
 .product img {
-  width: 60%;
-  height: 504px;
+  width: auto;
+  max-width: 50%;
+  height: 400px;
   object-fit: contain;
 }
 
 .product .info {
-  width: 40%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -214,15 +210,17 @@
   font-size: 16px;
   line-height: 24px;
   color: #5E5E5E;
-  margin: 0;
-  flex: 1 1;
+  margin: 0 0 24px 0;
+  flex: none;
 }
 
+/* Кнопка Add to cart */
 .product .info button {
   background: #2068F8;
   border-radius: 4px;
-  width: 100%;
-  padding: 14px;
+  width: auto;
+  align-self: flex-start;
+  padding: 14px 32px;
   color: white;
   border: none;
   font-weight: 500;
@@ -230,15 +228,6 @@
   line-height: 20px;
   display: flex;
   justify-content: center;
-}
-
-.product .info button img {
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-}
-/* Кнопка Add to cart: видно, что она нажимается */
-.product .info button {
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
 }
@@ -250,6 +239,13 @@
 .product .info button:active {
   transform: scale(0.98);
 }
+
+.product .info button img {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
 /* Страница корзины */
 .cartPage h2 {
   color: #22262A;
@@ -294,6 +290,7 @@
   color: #22262A;
   margin-top: 24px;
 }
+
 .removeBtn {
   background: white;
   border: 1px solid #e0245e;
@@ -308,6 +305,7 @@
   background: #e0245e;
   color: white;
 }
+
 .payBtn {
   display: block;
   margin: 20px 0 0 auto;
@@ -325,6 +323,7 @@
   background: #1a55d0;
 }
 
+/* Страница подтверждения заказа */
 .orderConfirmed {
   text-align: center;
   padding: 60px 0;
