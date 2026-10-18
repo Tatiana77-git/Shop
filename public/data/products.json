@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Black Sport Bodysuit",
+    "price": 49,
+    "description": "Sleek black bodysuit with a second-skin fit. Soft, stretchy and breathable fabric that moves with you from yoga to the gym.",
+    "category": "women",
+    "image": "/images/products/blackbody.jpg",
+    "rating": { "rate": 4.8, "count": 124 }
+  },
+  {
+    "id": 2,
+    "title": "Pink Sport Bodysuit",
+    "price": 49,
+    "description": "Soft pink bodysuit that flatters your silhouette. Lightweight, comfortable and made for training with style.",
+    "category": "women",
+    "image": "/images/products/pinkbody.jpg",
+    "rating": { "rate": 4.7, "count": 98 }
+  },
+  {
+    "id": 3,
+    "title": "Grey Sport Bodysuit",
+    "price": 45,
+    "description": "Versatile grey bodysuit for everyday workouts. Smooth seams, high stretch and all-day comfort.",
+    "category": "women",
+    "image": "/images/products/grisbody.jpg",
+    "rating": { "rate": 4.5, "count": 76 }
+  },
+  {
+    "id": 4,
+    "title": "Purple Sport Bodysuit",
+    "price": 52,
+    "description": "Bold purple bodysuit that adds colour to your training. Supportive fit, quick-dry fabric and a confident look.",
+    "category": "women",
+    "image": "/images/products/purplebody.jpg",
+    "rating": { "rate": 4.9, "count": 142 }
+  }
+]
