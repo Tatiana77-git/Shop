@@ -1,10 +1,11 @@
 
 .appContainer {
-  width: 1308px;
+  width: 100%;
+  max-width: 1340px;
+  box-sizing: border-box;
   padding: 0 16px;
   margin: 0 auto;
 }
-
 /* Шапка сайта */
 .header {
   display: flex;
@@ -345,4 +346,33 @@
   color: #2068F8;
   text-decoration: none;
   font-weight: 500;
+}
+/* Телефоны и узкие окна */
+@media (max-width: 700px) {
+  .cards {
+    justify-content: center;
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product > img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+
+  .product .info {
+    width: 100%;
+  }
+
+  .cartRow {
+    flex-wrap: wrap;
+  }
+
+  .cartTitle {
+    flex: 1 1 120px;
+  }
 }
