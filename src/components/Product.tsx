@@ -6,7 +6,11 @@ import cartWhite from "../assets/img/cartWhite.svg";
 import arrowBack from "../assets/img/arrowBack.svg";
 import { productType } from "../types/types";
 
-export const Product = () => {
+type ProductProps = {
+  onAddToCart: (product: productType) => void;
+};
+
+export const Product = ({ onAddToCart }: ProductProps) => {
   // useState: здесь хранится один товар. Пока данных нет, там null.
   const [product, setProduct] = useState<productType | null>(null);
 
@@ -68,7 +72,7 @@ export const Product = () => {
             <p>{product.category}</p>
           </div>
           <p className="description">{product.description}</p>
-          <button>
+          <button onClick={() => onAddToCart(product)}>
             <img src={cartWhite} alt="" />
             Add to cart
           </button>
