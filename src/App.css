@@ -4,7 +4,6 @@
   margin: 0 auto;
 }
 
-
 /* Шапка сайта */
 .header {
   display: flex;
@@ -12,6 +11,26 @@
   padding: 25px 0;
 }
 
+/* Иконка корзины и счётчик */
+.cartIcon {
+  position: relative;
+  display: inline-block;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #e0245e;
+  color: white;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
 
 /* Продукты */
 .bestSeller {
@@ -23,9 +42,7 @@
   color: #22262A;
 }
 
-
-
-/*Карточки*/
+/* Карточки */
 .cards {
   display: flex;
   column-gap: 32px;
@@ -114,14 +131,12 @@
   margin: 36px 0;
 }
 
-
 /* Продукт */
 .product {
   display: flex;
   column-gap: 48px;
   margin-bottom: 62px;
 }
-
 
 .product img {
   width: 60%;
@@ -140,7 +155,6 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 30px;
-  font-weight: 500px;
   margin: 0 0 7px 0;
 }
 
@@ -214,7 +228,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  justify-content: flex-end;
   display: flex;
   justify-content: center;
 }
@@ -224,124 +237,16 @@
   height: 18px;
   margin-right: 10px;
 }
-
-/* Отзывы */
-.reviewBox {
-  margin-bottom: 200px;
-}
-
-.review {
-  display: flex;
-  flex-direction: column;
-}
-
-.review h3 {
-  color: #22262A;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 30px;
-  font-weight: 500px;
-  margin: 0 0 30px 0;
-}
-
-.review textarea {
-  width: 100%;
-  border: 1px solid #E0DFDC;
-  border-radius: 2px;
-  height: 66px;
-  margin-bottom: 24px;
-  color: #22262A;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 10px;
-}
-
-.review textarea::placeholder {
-  color: #22262A;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-
-}
-
-.review button {
-  background-color: white;
-  border: 1px solid #2068F8;
-  border-radius: 2px;
-  padding: 10px;
-  color: #2068F8;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  align-self: flex-end;
-  margin-bottom: 36px;
+/* Кнопка Add to cart: видно, что она нажимается */
+.product .info button {
   cursor: pointer;
-  width: 170px;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-
-.reviewField {
-  padding: 38px 48px 50px;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  margin-bottom: 15px;
+.product .info button:hover {
+  background: #1a55d0;
 }
 
-.reviewField .info {
-  display: flex;
-  justify-content: space-between;
-}
-
-.reviewField .info .user {
-  display: flex;
-  flex-grow: 1;
-}
-
-.reviewField .info .user img {
-  margin-right: 12px;
-}
-
-
-.reviewField .info .user .infoBox {
-  display: flex;
-  flex-direction: column;
-}
-
-.reviewField .info .user .infoBox .author {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
-  margin: 0;
-}
-
-.reviewField .info .user .infoBox .rating {
-  margin: 0;
-}
-
-
-.reviewField .info .date {
-  margin: 0;
-}
-
-
-.reviewField .content .title {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
-}
-
-
-/* Разделитель */
-.divider {
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.14);
-  border: none;
-  position: absolute;
-  width: 100%;
-  top: 80px;
-  left: 0;
-  right: 0;
+.product .info button:active {
+  transform: scale(0.98);
 }

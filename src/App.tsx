@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { productType, CartItem } from './types/types';
 import {Header} from './components/Header.tsx';
@@ -10,35 +9,37 @@ import { Product } from './components/Product.tsx';
 function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-const addToCart = (product: productType) => {
-  setCart((prev) => {
-    const existing = prev.find((item) => item.id === product.id);
-    if (existing) {
-      // такой товар уже есть: увеличиваем количество
-      return prev.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-    }
-    // новый товар: добавляем с количеством 1
-    return [...prev, { ...product, quantity: 1 }];
-  });
-};
+  const addToCart = (product: productType) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        // такой товар уже есть: увеличиваем количество
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      // новый товар: добавляем с количеством 1
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  };
 
-// временно, чтобы увидеть корзину; позже уберём
-useEffect(() => {
-  console.log(cart);
-}, [cart]);
+  // общее число штук в корзине (снаружи addToCart, на уровне компонента)
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // временно, чтобы увидеть корзину; позже уберём
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
   return (
-   <div className='appContainer'>
-   <Header/>
-     
-   <Routes>
-       <Route path='/' element= { <BestSellers />} />
-      <Route path='/product/:id' element={ <Product onAddToCart={addToCart} />} />
-   </Routes>
+    <div className='appContainer'>
+      <Header cartCount={cartCount} />
 
-   
-  </div>
+      <Routes>
+        <Route path='/' element={ <BestSellers />} />
+        <Route path='/product/:id' element={ <Product onAddToCart={addToCart} />} />
+      </Routes>
+    </div>
   )
 }
 
