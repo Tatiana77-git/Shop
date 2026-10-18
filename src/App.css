@@ -294,3 +294,17 @@
   color: #22262A;
   margin-top: 24px;
 }
+.removeBtn {
+  background: white;
+  border: 1px solid #e0245e;
+  color: #e0245e;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.removeBtn:hover {
+  background: #e0245e;
+  color: white;
+}

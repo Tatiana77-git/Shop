@@ -4,9 +4,10 @@ import { CartItem } from "../types/types";
 
 type CartProps = {
   cart: CartItem[];
+  onRemove: (id: number) => void;
 };
 
-export const Cart = ({ cart }: CartProps) => {
+export const Cart = ({ cart, onRemove }: CartProps) => {
   // итог считается из списка: цена × количество, всё складывается
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -31,6 +32,9 @@ export const Cart = ({ cart }: CartProps) => {
               <p className="cartTitle">{item.title}</p>
               <p>€ {item.price} × {item.quantity}</p>
               <p className="cartLine">€ {(item.price * item.quantity).toFixed(2)}</p>
+              <button className="removeBtn" onClick={() => onRemove(item.id)}>
+                Remove
+              </button>
             </div>
           ))}
           <p className="cartTotal">Total: € {total.toFixed(2)}</p>

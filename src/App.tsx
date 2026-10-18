@@ -24,7 +24,12 @@ function App() {
     });
   };
 
-  // общее число штук в корзине (снаружи addToCart, на уровне компонента)
+  // убрать товар из корзины целиком: оставляем все, кроме товара с этим id
+  const removeFromCart = (id: number) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  // общее число штук в корзине
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   // временно, чтобы увидеть корзину; позже уберём
@@ -39,8 +44,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <BestSellers />} />
         <Route path='/product/:id' element={ <Product onAddToCart={addToCart} />} />
-        <Route path='/cart' element={ <Cart cart={cart} />} />
-
+        <Route path='/cart' element={ <Cart cart={cart} onRemove={removeFromCart} />} />
       </Routes>
     </div>
   )
