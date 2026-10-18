@@ -7,8 +7,17 @@ import './App.css'
 import { Product } from './components/Product.tsx';
 import { Cart } from './components/Cart.tsx';
 
+// достаём сохранённую корзину из localStorage (если её там нет, начинаем с пустой)
+const getSavedCart = (): CartItem[] => {
+  const saved = localStorage.getItem("cart");
+  if (saved) {
+    return JSON.parse(saved);
+  }
+  return [];
+};
+
 function App() {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(getSavedCart);
 
   const addToCart = (product: productType) => {
     setCart((prev) => {
@@ -31,6 +40,11 @@ function App() {
 
   // общее число штук в корзине
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // каждый раз, когда корзина изменилась, сохраняем её в localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // временно, чтобы увидеть корзину; позже уберём
   useEffect(() => {
